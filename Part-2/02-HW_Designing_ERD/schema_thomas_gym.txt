@@ -1,0 +1,45 @@
+
+
+trainers as tr
+---
+trainer_id PK INT
+first_name VARCHAR
+last_name VARCHAR
+gym_no INT FK >- gy.gym_no
+
+members as me
+---
+member_id PK INT
+trainer_id INT FK >- tr.trainer_id
+gym_no INT FK >- gy.gym_no
+first_name VARCHAR
+last_name VARCHAR
+gender VARCHAR
+join_date DATE
+end_date DATE
+credit_number FLOAT
+credit_exp DATE
+
+gym as gy
+---
+gym_no PK INT
+gym_name VARCHAR
+
+
+equipment as eq
+---
+equipment_id PK INT
+gym_no INT FK - gy.gym_no
+equipment_class VARCHAR
+
+payments as pay
+---
+payment_id PK INT
+payment_amount MONEY
+payment_date DATE
+member_id INT FK >- me.member_id
+cc_number FLOAT FK >- me.credit_number
+
+
+
+# Table documentation comment 1 (try the PDF/RTF export)
